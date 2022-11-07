@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', path='/styles/styles.css') }}">
+    <title>Parakeet Voice Changer</title>
+</head>
+<body>
+    <div class="app">
+        <h1>Parakeet Voice Changer</h1>
+        <img src="{{ url_for('static', path='/asset/parakeet.jpg') }}" alt="">
+        <video src="{{ video }}" width="640px" controls></video>
+        <audio src="{{ audio }}" controls></audio>
+        <p>just throw your voice or vocal, and convert!!</p>
+        {% if num == 10 %}
+        {{ num }} equal 10
+        {% elif num < 10 %}
+        {{ num }} is smaller than 10
+        {% else %}
+        {{ num }} is bigger than 10
+        {% endif %}
+        {% for i in range(num) %}
+        {{ i|e }}
+        {% endfor %}
+        <form action="/" enctype="multipart/form-data" method="post" class="form">
+            <label for="">just throw audio file</label>
+            <input type="file" name="request_file" multiple>
+            <input type="submit" value="Post">
+        </form>
+        <a href="/sub">next to sub page</a>
+    </div>
+</body>
+</html>
